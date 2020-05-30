@@ -1,0 +1,30 @@
+import java.util.List;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Normalchatbot {
+	public static void main(String[] args) throws InterruptedException {
+		//For silenting the chrome driver we use this code
+		System.setProperty("webdriver.chrome.silentOutput", "true");
+		System.setProperty("webdriver.chrome.driver", "Driver Path");
+		WebDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://ksrtc.in/oprs-web/");
+		//Thread.sleep(5000);
+		List<WebElement> element= driver.findElements(By.xpath("//div[@id='corover-close-btn']"));
+		System.out.println("ChatBot Found");
+		if(element.size()>0)
+		{
+    //Get(0) for Single Chatbot in Website
+			element.get(0).click();
+			System.out.println("closing ChatBot");
+		}
+		driver.quit();
+		
+	}
+	
+	
+
+}
